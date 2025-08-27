@@ -16,6 +16,7 @@ type AppConfig struct {
 	Port          int
 	DBPath        string
 	ApiPort       int
+	ServerId      string
 }
 
 func getenv(key, def string) string {
@@ -47,5 +48,6 @@ func LoadConfig() AppConfig {
 		Port:          mustAtoi(getenv("PORT", "49221"), 49221),
 		DBPath:        getenv("DB_PATH", "data.db"),
 		ApiPort:       mustAtoi(getenv("API_PORT", "8080"), 8080),
+		ServerId:      getenv("SERVER_ID", "device-123-xyz"),
 	}
 }
