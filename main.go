@@ -19,10 +19,7 @@ func main() {
 	}
 	defer ln.Close()
 
-	bonjour, err := startBonjour(cfg)
-	if err != nil {
-		log.Fatalf("start bonjour: %v", err)
-	}
+	bonjour := startBonjour(cfg)
 	defer bonjour.Stop()
 
 	router := Router()
